@@ -8,6 +8,90 @@
     <title>Hướng dẫn tạo 1 database trên mySQL</title>
   </head>
   <body>
-    <header></header>
+    <header>
+      <h1>Hướng dẫn tạo 1 database trên mySQL</h1>
+    </header>
+    <body>
+      <h2 class="step1">Bước 1 :Khởi tạo database</h2>
+      <br />
+      <img src="./img/image-2.png" alt="" width="600" />
+      <pre class="database_banHang">
+create database BANHANG_CNTT
+on primary
+(
+Name = BANHANG_CNTT
+filename = 'D:\Cong Viec EPU\Co So Du Lieu\DB_SinhVien\D19CNPM3.mdf'
+size = 5mb,
+maxsize = unlimited,
+filegrowth = 1mb
+)
+log on
+(
+Name = BANHANG_CNTT_Log
+filename = 'D:\Cong Viec EPU\Co So Du Lieu\DB_SinhVien\D19CNPM3.ldf'
+size = 1mb,
+maxsize = 10mb,
+filegrowth = 1mb
+)</pre
+      >
+      <br />
+      <hr />
+      <h2 class="step2">Bước 2 : Tạo các table</h2>
+      <br />
+      <img src="./img/image-1.png" alt="" width="600" />
+      <h3>
+        + Sử dụng câu lệnh :
+        <span style="color: blue">create table</span> name_table
+      </h3>
+      <h3>
+        + Xác định <span style="color: blue">typedef</span> và
+        <span style="color: blue">primary key</span> của các thuộc tính bên
+        trong table
+      </h3>
+      <h4>- Mã của thuộc tính nên để là int identity (khoi_tao,buoc_nhay)</h4>
+      <h4>
+        - Số điện thoại or CCCD nên để kiểu char (n) ; String còn lại để varchar
+        (n) , Tiếng việt có dấu để nchar (n) or nvarchar (n)
+      </h4>
+      <h4>
+        - Creat khóa chính :
+        <span style="color: blue">constraint</span> PK_nameTable
+        <span style="color: blue">primary key</span> (name_thuocTinh)
+      </h4>
+      <h4>
+        - Nếu table trên nó có thuộc tính giống nhau , thì thuộc tính table dưới
+        phải kế thừa từ table trên !! Sử dụng cú pháp : name_thuocTinh
+        <span style="color: blue">typedef references</span>
+        name_table(name_thuocTinh) or
+        <span style="color: blue">constraint</span> FK_nameTable2
+        <span style="color: blue">foreign key</span> (name_thuocTinh)
+        <span style="color: blue"> references </span> nameTable1
+        (name_thuocTinh)
+      </h4>
+      <hr />
+      <h2 class="step3">Bước 3 : Điền giá trị vào bảng</h2>
+      <h3>
+        + Sử dụng câu lệnh : <br />
+        <span style="color: blue">insert into</span> name_table(...) <br /><span
+          style="color: blue"
+          >values</span
+        >(
+        <span style="color: rgb(111, 176, 14)"
+          >Điền các thuộc tính N'...' nếu là string , '...' nếu là kiểu char
+          hoặc số , các thuộc tính cách nhau bởi dấu phẩy
+        </span>
+        ),<br />(...),<br />(...)<br /><span style="color: blue"
+          >select * from</span
+        >
+        name_table
+      </h3>
+    </body>
+    <footer>
+      <hr />
+      <a href="https://epu.edu.vn/"><img src="./img/image-3.jpg" alt="" /></a>
+      <img src="./img/favicon.png" alt="" width="200" />
+      <br />
+      <a class="myEmail" href="./address.html">Author</a>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,18 @@
+h1 {
+  text-align: center;
+  color: red;
+}
+h2 {
+  color: rgb(110, 131, 26);
+}
+.myEmail {
+  display: inline-block;      /* để box-shadow áp dụng đúng */
+  padding: 6px 12px;
+  text-decoration: none;
+  background: #eee;
+  color: #333;
+  transition: box-shadow 0.2s ease;
+}
+.myEmail:hover {
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
